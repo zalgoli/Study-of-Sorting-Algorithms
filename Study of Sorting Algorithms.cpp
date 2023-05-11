@@ -8,7 +8,7 @@
 
 int main()
 {
-    const int size = 100000;
+    const int size = 10000;
     int arr[size];
 
     // Fill the array with numbers
@@ -21,14 +21,30 @@ int main()
     std::mt19937 gen(rd());
     std::shuffle(arr, arr + size, gen);
 
-    auto start_time = std::chrono::high_resolution_clock::now();
+    std::cout << "Choose which sorting algorithm to use: \n1. Bubble Sort\n";
+    int algorithm;
+    std::cin >> algorithm;
+    switch (algorithm) {
+    case 1: {
+        bubble_sort(arr, size, false);
+        break;
+    }
+    }
+    
 
-    bubble_sort(arr, size, true);
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] <<",";
+    }
 
-    auto end_time = std::chrono::high_resolution_clock::now();
-    auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+    std::cout << "\n\n";
 
-    std::cout << "Time spent on the operation: " << duration_ms << " milliseconds.\n";
+    
+
+    std::cout << "\n\n";
+    
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << ",";
+    }
 
     return 0;
 }
