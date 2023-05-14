@@ -23,6 +23,7 @@ void selection_sort(int* arr, int size, bool ascending) {
 			sorted = true;
 			for (int i = 0; i < size; i++) {
 				int floor = 0;
+				int floor = 0;
 				swap(&arr[i], &*smallest(arr, size));
 			}
 		}
