@@ -3,12 +3,14 @@
 #include <algorithm>
 #include <chrono>
 
-#include "BubbleSort.h"
 
+#include "BubbleSort.h"
+#include "SelectionSort.h"
 
 int main()
 {
-    const int size = 10000;
+    // Specify the length of the array to sort (it gets slow above 80k elements)
+    const int size = 100000;
     int arr[size];
 
     // Fill the array with numbers
@@ -21,7 +23,7 @@ int main()
     std::mt19937 gen(rd());
     std::shuffle(arr, arr + size, gen);
 
-    std::cout << "Choose which sorting algorithm to use: \n1. Bubble Sort\n";
+    std::cout << "Choose which sorting algorithm to use: \n1. Bubble Sort\n2. Selection Sort\n";
     int algorithm;
     std::cin >> algorithm;
     switch (algorithm) {
@@ -29,21 +31,10 @@ int main()
         bubble_sort(arr, size, false);
         break;
     }
+    case 2: {
+        selection_sort(arr, size, true);
+        break;
     }
-    
-
-    for (int i = 0; i < size; i++) {
-        std::cout << arr[i] <<",";
-    }
-
-    std::cout << "\n\n";
-
-    
-
-    std::cout << "\n\n";
-    
-    for (int i = 0; i < size; i++) {
-        std::cout << arr[i] << ",";
     }
 
     return 0;

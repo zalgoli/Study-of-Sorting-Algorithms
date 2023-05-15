@@ -35,5 +35,5 @@ void bubble_sort(int* arr, int size, bool ascending) {
     }
     auto end_time = std::chrono::high_resolution_clock::now();
     auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
-    std::cout << "Sorting took " << duration_ms << " milliseconds." << std::endl;
+    std::cout << "Sorting " << size << " elements took " << duration_ms << " milliseconds." << std::endl;
 }
